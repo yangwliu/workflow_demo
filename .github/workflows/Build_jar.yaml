@@ -3,6 +3,8 @@ on:
   push:
     branches:
       - '*'
+  schedule:
+    - corn: '*/10 * * * *'
 
 jobs:
   echo_hello:

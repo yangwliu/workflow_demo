@@ -8,5 +8,4 @@ jobs:
   echo_hello:
     steps:
       - name: printhello
-        shell: bash
-        run: echo "hello"
+        uses: actions/checkout@v4

@@ -9,9 +9,8 @@ on:
 
 jobs:
   downloadWorkflowArtifact:
-    if: ${{ github.event.workflow_run.conclusion == 'success' }}
+    runs-on: ubuntu-latest
     steps:
-      - name: printhello
-        runs-on: ubuntu-latest
+      - name: print123
         shell: bash
         run: echo 'hello'

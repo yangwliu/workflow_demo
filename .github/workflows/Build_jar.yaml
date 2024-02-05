@@ -4,7 +4,7 @@ on:
     branches:
       - '*'
   schedule:
-    - corn: '*/10 * * * *'
+    - cron: '*/10 * * * *'
 
 jobs:
   echo_hello:

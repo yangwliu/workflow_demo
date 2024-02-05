@@ -5,7 +5,7 @@ on:
     workflows:
       - Test_Workflow
     types:
-      - Complete
+      - completed
 
 jobs:
   downloadWorkflowArtifact:

@@ -1,0 +1,17 @@
+name: Deploy
+on:
+  workflow_dispatch:
+  workflow_run:
+    workflows:
+      - Test_Workflow
+    types:
+      - Complete
+
+jobs:
+  downloadWorkflowArtifact:
+    if: ${{ github.event.workflow_run.conclusion == 'success' }}
+    steps:
+      - name: printhello
+        runs-on: ubuntu-latest
+        shell: bash
+        run: echo 'hello'

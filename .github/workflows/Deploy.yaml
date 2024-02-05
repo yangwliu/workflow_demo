@@ -13,4 +13,7 @@ jobs:
     steps:
       - name: print123
         shell: bash
-        run: echo 'hello'
+        run: echo ${{github.event.workflow_run.head_sha}}
+      - name: printurl
+        shell: bash
+        run: echo ${{github.event.workflow_run.artifacts_url}}

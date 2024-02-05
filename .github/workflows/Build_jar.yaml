@@ -1,0 +1,12 @@
+name: Test_Workflow
+on:
+  push:
+    branches:
+      - '*'
+
+jobs:
+  echo_hello:
+    steps:
+      - name: printhello
+        shell: bash
+        run: echo "hello"

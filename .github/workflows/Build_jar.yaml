@@ -16,18 +16,18 @@ jobs:
           response=$(curl -s -H "Authorization: Bearer ${{ secrets.GITHUB_TOKEN }}" \
           "https://api.github.com/repos/${{ github.repository }}/commits/d79d2bd9")
           hash=$(echo "$response" | jq -r '.sha')
-          echo "::set-output name=hash::$hash"
-      - name: put to hash
-        run: echo "LONG_HASH=${{ steps.get_hash.outputs.long_hash }}" >> $GITHUB_ENV
+          echo "LONG_HASH=$hash" >> $GITHUB_ENV
+#      - name: put to hash
+#        run: echo "LONG_HASH=${{ steps.get_hash.outputs.long_hash }}" >> $GITHUB_ENV
       - name: Print Hash
-        run: echo "${{ env.LONG_HASH }}"
+        run: echo "${{ LONG_HASH }}"
 
       - name: Get commit SHA
         run: echo ${{ github.sha }}
       - name: printhello
         uses: actions/checkout@v4
         with:
-          ref: ${{ env.LONG_HASH }}
+          ref: ${{ LONG_HASH }}
           path: sourcecode
 
       - name: printpath

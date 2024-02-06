@@ -15,7 +15,7 @@ jobs:
       - name: printhello
         uses: actions/checkout@v1
         with:
-          ref: '41c99ba'
+          ref: '544f652a'
           path: main/
       - name: printpath
         run: echo `pwd`

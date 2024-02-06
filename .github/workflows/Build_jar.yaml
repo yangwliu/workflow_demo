@@ -20,14 +20,14 @@ jobs:
       - name: put to hash
         run: echo "LONG_HASH=${{ steps.get_hash.outputs.long_hash }}" >> $GITHUB_ENV
       - name: Print Hash
-        run: echo "${{ LONG_HASH }}"
+        run: echo "${{ env.LONG_HASH }}"
 
       - name: Get commit SHA
         run: echo ${{ github.sha }}
       - name: printhello
         uses: actions/checkout@v4
         with:
-          ref: ${{ LONG_HASH }}
+          ref: ${{ env.LONG_HASH }}
           path: sourcecode
 
       - name: printpath

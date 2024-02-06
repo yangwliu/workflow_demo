@@ -19,8 +19,7 @@ jobs:
           echo "::set-output name=hash::$hash"
 
       - name: Print Hash
-        run:
-          echo "Hash: ${{ steps.commit_info.outputs.hash }}"
+        run: echo ${{ steps.commit_info.outputs.hash }}
       - name: Get commit SHA
         run: echo ${{ github.sha }}
       - name: printhello

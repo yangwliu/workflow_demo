@@ -14,25 +14,23 @@ jobs:
         id: commit_info
         run: |
           response=$(curl -s -H "Authorization: Bearer ${{ secrets.GITHUB_TOKEN }}" \
-          "https://api.github.com/repos/${{ github.repository }}/commits/${{ github.sha }}")
+          "https://api.github.com/repos/${{ github.repository }}/commits/d79d2bd9")
           hash=$(echo "$response" | jq -r '.sha')
           echo "::set-output name=hash::$hash"
-
+      - name: put to hash
+        run: echo "LONG_HASH=${{ steps.get_hash.outputs.long_hash }}" >> $GITHUB_ENV
       - name: Print Hash
-        run: echo ${{ steps.commit_info.outputs.hash }}
+        run: echo $LONG_HASH
+
       - name: Get commit SHA
         run: echo ${{ github.sha }}
       - name: printhello
-        uses: actions/checkout@v1
-
-      - name: longhash
-        run: echo "::set-output name=long_hash::$(git rev-parse 3eded484)"
-      - name: printpath
-        run: echo `pwd`
-      - name: checkoutagain
         uses: actions/checkout@v4
         with:
-          ref: d25761cb2f848389fbeb040258e0d10bc87f8b06
+          ref: $LONG_HASH
           path: sourcecode
+
+      - name: printpath
+        run: echo `pwd`
       - name: listfiles
         run: echo `ls -ll`

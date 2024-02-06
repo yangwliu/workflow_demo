@@ -16,3 +16,4 @@ jobs:
         uses: actions/checkout@v1
         with:
           ref: '41c99ba'
+          path: main/

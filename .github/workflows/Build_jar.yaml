@@ -22,7 +22,7 @@ jobs:
     needs: getSha
     runs-on: ubuntu-latest
     env:
-      longsha=${{ needs.step1.outputs.LONG_HASH }}"
+      longsha=${{ needs.step1.outputs.LONG_HASH }}
     steps:
       - name: Print Hash
         run: echo $longsha

@@ -15,4 +15,4 @@ jobs:
       - name: printhello
         uses: actions/checkout@v4
         with:
-          ref: '99588506'
+          ref: '41c99ba7586c553a824efb496d746ee7fade7f7f'

@@ -18,7 +18,7 @@ jobs:
           "https://api.github.com/repos/${{ github.repository }}/commits/d79d2bd9")
           hash=$(echo "$response" | jq -r '.sha')
           echo $hash
-          echo "LONG_HASH=$sha" >> "$GITHUB_OUTPUT"
+          echo "LONG_HASH=$hash" >> "$GITHUB_OUTPUT"
 
 #      - name: put to hash
 #        run: echo "LONG_HASH=${{ steps.get_hash.outputs.long_hash }}" >> $GITHUB_ENV

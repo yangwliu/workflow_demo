@@ -21,11 +21,11 @@ jobs:
   checkout:
     needs: getSha
     runs-on: ubuntu-latest
-    env:
-      longsha=${{ needs.step1.outputs.LONG_HASH }}
+#    env:
+#      longsha=${{ needs.step1.outputs.LONG_HASH }}
     steps:
       - name: Print Hash
-        run: echo $longsha
+        run: echo "longsha=${{ needs.step1.outputs.LONG_HASH }}"
       - name: Get commit SHA
         run: echo ${{ github.sha }}
       - name: printhello

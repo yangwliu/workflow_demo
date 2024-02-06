@@ -27,7 +27,7 @@ jobs:
       - name: printhello
         uses: actions/checkout@v4
         with:
-          ref: $LONG_HASH
+          ref: ${{ LONG_HASH }}
           path: sourcecode
 
       - name: printpath

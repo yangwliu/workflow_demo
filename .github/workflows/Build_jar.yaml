@@ -19,11 +19,10 @@ jobs:
 #      - name: put to hash
 #        run: echo "LONG_HASH=${{ steps.get_hash.outputs.long_hash }}" >> $GITHUB_ENV
   checkout:
-    needs:
-      - getSha
+    needs: getSha
     runs-on: ubuntu-latest
     env:
-      longsha=${{ getSha.step1.outputs.LONG_HASH }}"
+      longsha=${{ needs.step1.outputs.LONG_HASH }}"
     steps:
       - name: Print Hash
         run: echo $longsha

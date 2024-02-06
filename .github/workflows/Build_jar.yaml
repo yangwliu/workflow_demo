@@ -7,12 +7,10 @@ on:
     - cron: '00 12 1 * *'
 
 jobs:
-  checkout:
-    uses: actions/checkout@v4
-    with:
-      ref: '99588506'
   echo_hello:
     runs-on: ubuntu-latest
     steps:
       - name: printhello
         uses: actions/checkout@v4
+        with:
+          ref: '99588506'

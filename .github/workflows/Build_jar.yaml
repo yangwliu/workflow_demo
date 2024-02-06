@@ -31,7 +31,7 @@ jobs:
       - name: Print Hash
         run: |
           echo "${{ needs.step1.outputs }}"
-          echo "longsha=${{ needs.getSha.outputs.longsha }}" >> $GITHUB_ENV
+          echo "longsha=${{ needs.getSha.outputs.longsha }}" >> "$GITHUB_ENV"
           echo "$longsha"
       - name: Get commit SHA
         run: |
@@ -40,7 +40,7 @@ jobs:
       - name: printhello
         uses: actions/checkout@v3
         with:
-          ref:  ${{ longsha }}
+          ref:  ${{ env.longsha }}
 
       - name: printpath
         run: echo `pwd`

@@ -9,6 +9,8 @@ on:
 jobs:
   getSha:
     runs-on: ubuntu-latest
+    outputs:
+      longsha: ${{ steps.stpe1.output.LONG_HASH }}
     steps:
       - run: |
           response=$(curl -s -H "Authorization: Bearer ${{ secrets.GITHUB_TOKEN }}" \
@@ -28,7 +30,7 @@ jobs:
       - name: Print Hash
         run: |
           echo "${{ needs.step1.outputs }}"
-          echo "longsha=${{ needs.step1.outputs.LONG_HASH }}"
+          echo "longsha=${{ needs.getSha.outputs.longsha }}"
       - name: Get commit SHA
         run: echo ${{ github.sha }}
       - name: printhello

@@ -26,7 +26,9 @@ jobs:
 #      longsha=${{ needs.step1.outputs.LONG_HASH }}
     steps:
       - name: Print Hash
-        run: echo "longsha=${{ needs.step1.outputs.LONG_HASH }}"
+        run: |
+          echo "${{ needs.step1.outputs }}"
+          echo "longsha=${{ needs.step1.outputs.LONG_HASH }}"
       - name: Get commit SHA
         run: echo ${{ github.sha }}
       - name: printhello

@@ -17,3 +17,8 @@ jobs:
         with:
           ref: '41c99ba'
           path: main/
+      - name: printpath
+        run: echo `pwd`
+
+      - name: listfiles
+        run: echo `ls -ll`

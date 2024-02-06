@@ -10,6 +10,8 @@ jobs:
   echo_hello:
     runs-on: ubuntu-latest
     steps:
+      - name: Get commit SHA
+        run: echo ${{ github.sha }}
       - name: printhello
         uses: actions/checkout@v4
         with:

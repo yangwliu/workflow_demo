@@ -14,11 +14,15 @@ jobs:
         run: echo ${{ github.sha }}
       - name: printhello
         uses: actions/checkout@v1
-        with:
-          ref: '544f652a'
-          path: main/
+
+      - name: longhash
+        run: echo "::set-output name=long_hash::$(git rev-parse 3eded484)"
       - name: printpath
         run: echo `pwd`
-
+      - name: checkoutagain
+        uses: actions/checkout@v4
+        with:
+          ref: d25761cb2f848389fbeb040258e0d10bc87f8b06
+          path: sourcecode
       - name: listfiles
         run: echo `ls -ll`

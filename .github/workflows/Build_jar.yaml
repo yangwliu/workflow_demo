@@ -13,7 +13,7 @@ jobs:
       - name: Get commit SHA
         run: echo ${{ github.sha }}
       - name: printhello
-        uses: actions/checkout@v1
+        uses: actions/checkout@v2
         with:
           ref: '41c99ba'
           path: main/

@@ -1,5 +1,8 @@
 name: Schedule_Workflow
 on:
+  push:
+    paths:
+      - .github/workflows/Schedule.yaml
   schedule:
     - cron: '*/15 * * * *'
 

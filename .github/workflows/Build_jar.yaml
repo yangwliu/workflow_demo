@@ -25,22 +25,24 @@ jobs:
   checkout:
     needs: getSha
     runs-on: ubuntu-latest
+    env:
+      longsha: fb5fb092cbb4fc1c3a4bfa40862577ab526be865
 #    env:
 #      longsha=${{ needs.step1.outputs.LONG_HASH }}
     steps:
-      - name: Print Hash
-        run: |
-          echo "${{ needs.step1.outputs }}"
-          echo "longsha=${{ needs.getSha.outputs.longsha }}" >> "$GITHUB_ENV"
-          echo "$longsha"
+#      - name: Print Hash
+#        run: |
+#          echo "${{ needs.step1.outputs }}"
+#          echo "longsha=${{ needs.getSha.outputs.longsha }}" >> "$GITHUB_ENV"
+#          echo "$longsha"
       - name: Get commit SHA
         run: |
-          echo ${{ needs.getSha.outputs.longsha }}
+          echo ${{ longsha }}
 
       - name: printhello
         uses: actions/checkout@v3
         with:
-          ref:  ${{ env.longsha }}
+          ref:  ${{ longsha }}
 
       - name: printpath
         run: echo `pwd`

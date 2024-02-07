@@ -37,7 +37,7 @@ jobs:
 #          echo "$longsha"
       - name: Get commit SHA
         run: |
-          echo ${{ longsha }}
+          echo $longsha
 
       - name: printhello
         uses: actions/checkout@v3

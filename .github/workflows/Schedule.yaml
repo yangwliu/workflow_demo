@@ -1,0 +1,11 @@
+name: Schedule_Workflow
+on:
+  schedule:
+    - cron: '*/2 * * * *'
+
+jobs:
+  getSha:
+    runs-on: ubuntu-latest
+    steps:
+      - name: sayHello
+        run: echo 'hello'

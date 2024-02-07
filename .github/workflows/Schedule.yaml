@@ -1,7 +1,7 @@
 name: Schedule_Workflow
 on:
   schedule:
-    - cron: '*/2 * * * *'
+    - cron: '*/10 * * * *'
 
 jobs:
   getSha:
